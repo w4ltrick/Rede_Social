@@ -5,19 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
-    <h1>POSTAGENS</h1>
+    <h1>REDE SOCIAL</h1>
 
-    {% for post in posts %}
-        <p>{{ post.title }}</p>
-        <p>{{ post.content }}</p>
-        <p>{{ post.created_at|date:'d/m/Y H:i' }}</p>
-        <p>{{ post.user }}</p>
-    {% endfor %}
+    <div class="posts-container">
+        {% for post in posts %}
+            <div class="post">
+                <!-- Nome do Usuário -->
+                <div class="post-user">{{ post.user }}</div>
+                
+               
+                <div class="post-title">
+                    <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                </div>
+
+
+                <div class="post-content">{{ post.content|truncatewords:20 }}</div>
+
+            
+                <div class="post-meta">
+                    <div class="post-date">{{ post.created_at|date:'d/m/Y H:i' }}</div>
+                </div>
+
+                <form method="post" action="{% url 'like_post' post.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="like-button">Curtir</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
 
 </body>
 </html>

@@ -47,6 +47,13 @@ h1 {
   box-shadow: 0 6px 12px rgba(39, 174, 96, 0.2);
 }
 
+.post-user {
+  font-size: 1rem;
+  color: #196f3d;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
 .post-title {
   font-size: 1.5rem;
   color: #196f3d;
@@ -62,19 +69,39 @@ h1 {
 }
 
 .post-meta {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid #e8f5e9;
-  padding-top: 10px;
+  margin-bottom: 10px;
+  color: #888;
   font-size: 0.9rem;
-  color: #2ecc71;
 }
 
-.post-date {
-  color: #7f8c8d;
+/* Botão de curtir estilizado */
+.like-button {
+  margin-top: 10px;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.post-user {
-  font-weight: 500;
-  color: #27ae60;
+.like-button:hover {
+  background-color: #1e8449;
+  transform: scale(1.05);
+}
+
+.like-button:active {
+  transform: scale(0.97);
+}
+
+.like-button::before {
+  content: "❤️";
+  font-size: 1.1rem;
 }
